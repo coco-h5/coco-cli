@@ -1,33 +1,13 @@
 const path = require('path');
 const fs = require('fs');
-const fsExtra = require('fs-extra')
 const chalk = require('chalk');
 const inquirer = require('inquirer');
 const download = require('download-git-repo');
 const ora = require('ora');
-const readPkg = require('read-pkg')
 const genConfig = require('../tpl/getConfig');
+const { writeFileTree, resolveJson } = require('../lib/utils');
 // 目标文件夹根路径
 let targetRootPath = process.cwd();
-
-function writeFileTree (dir, files) {
-  Object.keys(files).forEach((name) => {
-    const filePath = path.join(dir, name)
-    fsExtra.ensureDirSync(path.dirname(filePath))
-    fsExtra.writeFileSync(filePath, files[name])
-  })
-}
-
-function resolveJson (context, name = 'package.json') {
-  if (fs.existsSync(path.join(context, name))) {
-    return readPkg.sync({
-      cwd: context
-    })
-  }
-  return {}
-}
-
-
 
 function deleteFolderRecursive (path) {
   if (fs.existsSync(path)) {
