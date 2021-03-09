@@ -25,7 +25,7 @@ module.exports = function(){
     // 连续提问
     inquirer.prompt([
       {
-        name:'初始化提示',
+        name:'init-confirm',
         type:'confirm',
         message:`coco.config.js 已经存在，是否覆盖?`,
         validate: function(input){

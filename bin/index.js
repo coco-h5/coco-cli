@@ -5,6 +5,7 @@ const program = require('commander');
 const initial = require('../command/initial');
 const generate = require('../command/generator');
 const release = require('../command/release');
+const pkg = require('../package.json')
 
 let config = {};
 // 配置文件如果存在则读取
@@ -13,7 +14,7 @@ if(fs.existsSync(path.resolve('coco.config.js'))){
 }
 
 program
-  .version('1.0.0','-v, --version')
+  .version(pkg.version,'-v, --version')
   .command('init')
   .description('初始化 coco config 配置文件')
   .action(initial);
