@@ -5,6 +5,8 @@ const program = require('commander');
 const initial = require('../command/initial');
 const generate = require('../command/generator');
 const release = require('../command/release');
+const releaseCo = require('../command/releaseCo');
+
 const pkg = require('../package.json')
 
 let config = {};
@@ -31,6 +33,13 @@ program
   .description('发布模板')
   .action(function(){
     release();
+  });
+
+program
+  .command('releaseCo')
+  .description('发布组件')
+  .action(function(){
+    releaseCo();
   });
 
 program.parse(process.argv);
