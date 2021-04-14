@@ -1,16 +1,23 @@
 {
-  "name": "coco-cli",
+  "name": "coco-h5-cli",
   "version": "1.0.0",
   "description": "coco cli",
+  "private": false,
   "bin": {
     "coco": "./bin/index.js"
   },
+  "files": [
+    "bin",
+    "command",
+    "lib",
+    "tpl"
+  ],
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "cli",
+    "coco-h5"
+  ],
+  "author": "muwoo",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
